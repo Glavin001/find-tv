@@ -20,28 +20,24 @@ module.exports = function(options, callback) {
     }
     var limit = options.limit || 256;
     var timeout = options.timeout || 100; // milliseconds
-//    async.filter(allIPs, function(ip, callback) {
-//    async.detect(allIPs, function(ip, callback) {
     async.detectLimit(allIPs, limit, function(ip, callback) {
-        //console.log('Check '+ip+' '+(+new Date()));
         var remote = new SamsungRemote({
             ip: ip, // required: IP address of your Samsung Smart TV 
             timeout: timeout
         });
         // check if TV is alive (ping) 
         return remote.isAlive(function(err) {
-            //console.log('Done1 '+ip+' '+(+new Date()));
             if (!err) {
                 return remote.send('KEY_POWERON', function(err) {
-                    //console.log('Done2 '+ip+' '+(+new Date()));
-                    return callback(null, !err);
+                    callback(null, !err);
+                    // Handle callback being called multiple times
+                    callback = function() {}; 
                 });
             } else {
                 return callback(null, false);
             }
         });
     }, function(error, results) {
-        //console.log(error, results); 
         return callback(error, results);
     });
 
