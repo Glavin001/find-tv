@@ -1,6 +1,6 @@
 {
   "name": "find-tv",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Search for a Smart TV on your network that can be connected to",
   "main": "index.js",
   "bin": {
