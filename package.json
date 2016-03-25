@@ -1,0 +1,35 @@
+{
+  "name": "find-tv",
+  "version": "0.1.0",
+  "description": "Search for a Smart TV on your network that can be connected to",
+  "main": "index.js",
+  "bin": {
+    "find-tv": "cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Glavin001/find-tv.git"
+  },
+  "keywords": [
+    "tv",
+    "samsung",
+    "remote",
+    "find",
+    "search"
+  ],
+  "author": "Glavin Wiechert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Glavin001/find-tv/issues"
+  },
+  "homepage": "https://github.com/Glavin001/find-tv#readme",
+  "dependencies": {
+    "async": "^2.0.0-rc.2",
+    "ip": "^1.1.2",
+    "samsung-remote": "^1.2.5"
+  }
+}
